@@ -1,3 +1,4 @@
+[View Solution](https://maudepod.github.io/pricing-component-with-toggle-master-html/)
 # Frontend Mentor - Pricing component with toggle
 
 ![Design preview for the Pricing component with toggle coding challenge](./design/desktop-preview.jpg)
