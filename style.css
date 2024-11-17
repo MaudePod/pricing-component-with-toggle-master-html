@@ -1,0 +1,254 @@
+    :root {
+        --linear-gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+        --very-light-grayish-blue: hsl(240, 78%, 98%);
+        --light-grayish-blue: hsl(234, 14%, 74%);
+        --grayish-blue: hsl(233, 13%, 49%);
+        --dark-grayish-blue: hsl(232, 13%, 33%);
+    }
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url(./fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+    }
+
+    body {
+        display: grid;
+        width: 100svw;
+        min-height: 100svh;
+        container: body / inline-size;
+        place-items: center;
+        position: relative;
+        background: var(--very-light-grayish-blue);
+        margin: 0;
+        font-family: 'Montserrat';
+        overflow: clip;
+    }
+
+    main {
+        display: grid;
+        min-width: 100cqw;
+        min-height: 80cqh;
+        container: main / inline-size;
+        place-items: center;
+        font-weight: 900;
+        color: var(--dark-grayish-blue);
+    }
+
+    section[class="pricing-card-container"] {
+        display: grid;
+        gap: 20px;
+        place-items: center;
+        width: 100%;
+    }
+
+    section[class="product-card-header"] {
+        font-size: 3cqi;
+        text-align: center;
+    }
+
+    section[class="time"] {
+        display: flex;
+        place-items: center;
+        column-gap: 10px;
+    }
+
+    label[for="annually"],
+    label[for="monthly"] {
+        cursor: pointer;
+    }
+
+    span[class="time-radio-container"] {
+        background: linear-gradient(var(--linear-gradient));
+        height: 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 10px;
+        width: 30px;
+        place-items: center;
+    }
+
+    input[name="price"] {
+        appearance: none;
+        cursor: pointer;
+    }
+
+    input[name="price"]:checked {
+        height: 15px;
+        width: 15px;
+        background: white;
+        border-radius: 50%;
+        margin: 0;
+    }
+
+    body:has(input[id="annually"]:checked) {
+
+        section[class="price-monthly"] {
+            display: none;
+        }
+
+        section[class="price-annually"] {
+            display: grid;
+        }
+
+    }
+
+    body:has(input[id="monthly"]:checked) {
+
+        section[class="price-annually"] {
+            display: none;
+        }
+
+        section[class="price-monthly"] {
+            display: grid;
+        }
+
+    }
+
+    section[class="pricing-cards"] {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        position: relative;
+        padding-top: 5%;
+        width: 85%;
+    }
+
+    section[class="pricing-card"] {
+        display: grid;
+        place-items: center;
+        gap: 20px;
+        padding: 10%;
+        border-radius: 5px;
+        background: white;
+    }
+
+    section[class="price-monthly"],
+    section[class="price-annually"] {
+        font-size: 4cqi;
+        min-width: 250px;
+        width: 100%;
+        text-align: center;
+        color: black;
+    }
+
+    section[class="pricing-card"]:nth-of-type(2) {
+        background: linear-gradient(var(--linear-gradient));
+        z-index: 1;
+        transform: scale(1.1);
+        color: white;
+    }
+
+    section[class="pricing-card"]:nth-of-type(2) section[class="price-monthly"],
+    section[class="pricing-card"]:nth-of-type(2) section[class="price-annually"] {
+        color: white;
+
+    }
+
+    section[class="storage"] {
+        border-bottom: 1px solid var(--light-grayish-blue);
+
+        width: 80%;
+        text-align: center;
+        padding-bottom: 10%;
+    }
+
+    section[class="users"] {
+        border-bottom: 1px solid var(--light-grayish-blue);
+
+        width: 80%;
+        text-align: center;
+        padding-bottom: 10%;
+    }
+
+    section[class="limit"] {
+        border-bottom: 1px solid var(--light-grayish-blue);
+
+        width: 80%;
+        text-align: center;
+        padding-bottom: 10%;
+    }
+
+    section[class="learn-more"] {
+        width: 80%;
+    }
+
+    section[class="learn-more"] button:hover {
+        background: transparent;
+        border: 2px solid;
+        color: hsl(237, 63%, 64%);
+        font-weight: 900;
+    }
+
+    section[class="learn-more"] button {
+        width: 100%;
+        height: 40px;
+        color: white;
+        background: linear-gradient(var(--linear-gradient));
+        border-radius: 5px;
+        outline-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    section[class="pricing-card"]:nth-of-type(2) section[class="learn-more"] button {
+        color: hsl(237, 63%, 64%);
+        background: white;
+    }
+
+    section[class="pricing-card"]:nth-of-type(2) section[class="learn-more"] button:hover {
+        background: transparent;
+        color: white;
+    }
+
+    svg[class="bg-bottom"] {
+        position: absolute;
+        bottom: -60%;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    svg[class="bg-top"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        height: 100%;
+    }
+
+    svg[id="svgs"] {
+        display: none;
+    }
+
+
+    @container body (inline-size < 1000px) {
+        section[class="pricing-cards"] {
+            display: grid;
+            grid-template-columns: 1fr;
+            place-items: center;
+            position: unset;
+            gap: 50px;
+        }
+
+        section[class="price-monthly"],
+        section[class="price-annually"] {
+            font-size: 14cqi;
+        }
+
+        section[class="pricing-card"]:nth-of-type(2) {
+            transform: scale(1);
+        }
+
+        section[class="product-card-header"] {
+            font-size: 9cqi;
+            text-align: center;
+        }
+
+        section[class="pricing-card-container"] {
+            padding: 10% 0% 10% 0%;
+        }
+
+        svg[class="bg-bottom"] {
+            display: none;
+        }
+    }
